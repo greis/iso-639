@@ -18,9 +18,17 @@ class TestISO639 < Test::Unit::TestCase
   should "find by english name" do
     assert_equal ["eng", "", "en", "English", "anglais"], ISO_639.find_by_english_name("English")
   end
+
+  should "find by english name ignoring case" do
+    assert_equal ["eng", "", "en", "English", "anglais"], ISO_639.find_by_english_name("english")
+  end
   
   should "find by french name" do
     assert_equal ["eng", "", "en", "English", "anglais"], ISO_639.find_by_french_name("anglais")
+  end
+
+  should "find by french name ignoring case" do
+    assert_equal ["eng", "", "en", "English", "anglais"], ISO_639.find_by_french_name("Anglais")
   end
   
   %w[
